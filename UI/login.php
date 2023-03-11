@@ -19,6 +19,17 @@
 </style>
 <?php
 include('./constant/layout/customHeader.php');
+require('../DAO/UsersDAO.php');
+require('../POJO/UsersPOJO.php');
+$usertype='Customer';
+if(isset($_POST['username']) && isset($_POST['password']) && isset($usertype)){
+    $u= new UsersPOJO();
+    $u->setEmail($_POST['username']);
+    $u->setPassword($_POST['password']);
+    $u->setUserType($usertype);
+    $userDao = UsersDAO::validateUser($u);
+    // <?php echo $_SERVER['PHP_SELF']
+}
 ?>
 <div id="main-wrapper">
   <div class="unix-login">
@@ -30,7 +41,8 @@ include('./constant/layout/customHeader.php');
           <div class="login-content">
             <div class="login-form">
               <center><img src="./assets/uploadImage/Logo/logo.png" style="width: 100%;"></center><br>
-              <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" id="loginForm">
+              
+              <form action="" method="post" id="loginForm">
                 <div class="form-group">
 
                   <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="">
@@ -40,7 +52,7 @@ include('./constant/layout/customHeader.php');
 
                   <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
                 </div>
- 
+
                   <button type="submit" name="login" class="f-w-600 btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
           
                 <div class="forgot-phone text-right f-right">
@@ -61,5 +73,4 @@ include('./constant/layout/customHeader.php');
 
 
 
-<?php
-include('./constant/layout/customFooter.php');
+<?php include('./constant/layout/customFooter.php'); ?>

@@ -37,6 +37,6 @@
 </head>
 
 <body class="fix-header fix-sidebar">
-
+<!-- 
     <div id="page"></div>
-    <div id="loading"></div>
+    <div id="loading"></div> -->
