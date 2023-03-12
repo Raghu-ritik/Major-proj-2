@@ -19,9 +19,9 @@ if (!isset($_REQUEST['last_message'])) {
   
 if (!isset($_POST['login'])) {
     $redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');
-    drawUserSideBar();
+    drawAdminSideBar();
     $GLOBALS['smarty']->assign('redirection', htmlentities($redirection, ENT_QUOTES));
-    display_smarty_template('dashboard.tpl',"user");
+    display_smarty_template('dashboard.tpl',"admin");
 }
  
 display_smarty_template('layouts/footer.tpl',"user");

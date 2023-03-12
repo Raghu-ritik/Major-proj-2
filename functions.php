@@ -26,9 +26,9 @@ function draw_Custom_Header(){
 
 function draw_header($pageTitle, $lastmessage = '')
 {
-    global $pdo;
+    // global $pdo;
 
-    $uid = (isset($_SESSION['uid']) ? $_SESSION['uid'] : '');
+    // $uid = (isset($_SESSION['uid']) ? $_SESSION['uid'] : '');
 
     // Is the uid set?
     // if ($uid != null) {
@@ -59,11 +59,16 @@ function draw_header($pageTitle, $lastmessage = '')
     // $GLOBALS['smarty']->assign('base_url', $GLOBALS['CONFIG']['base_url']);
     // $GLOBALS['smarty']->assign('page_title', $pageTitle);
     // $GLOBALS['smarty']->assign('lastmessage', urldecode($lastmessage));
-    // display_smarty_template('header.tpl');
+    display_smarty_template('/layouts/header.tpl',"user");
 
 }
 
-
+function drawAdminSideBar(){
+    display_smarty_template('layouts/dashboardSidebar.tpl',"admin");
+}
+function drawUserSideBar(){
+    display_smarty_template('layouts/dashboardSidebar.tpl',"user");
+}
 /**
  * Custom redirection handler
  * @param string $url the internal page to redirect them to
@@ -142,7 +147,7 @@ function display_smarty_template($template_file,$WhoseTemplate)
 
 function draw_footer($whoseTemplate)
 {
-    display_smarty_template('footer.tpl',$whoseTemplate);
+    display_smarty_template('layouts/footer.tpl',$whoseTemplate);
 }
 
 function base_url(){
