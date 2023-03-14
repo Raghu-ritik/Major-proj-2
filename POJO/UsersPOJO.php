@@ -3,9 +3,9 @@
         private $userid;
         private $username;
         private $usertype;
-        private $phone_no;
-        private $updated_on;
-        private $created_on;
+        private $phoneNo;
+        private $updatedOn;
+        private $createdOn;
         private $email;
         private $password;
         //setters
@@ -18,14 +18,14 @@
         public function setUserType($usertype){
             $this->usertype=$usertype;
         }
-        public function setPhoneNo($phone_no){
-            $this->phone_no=$phone_no;
+        public function setPhoneNo($phoneNo){
+            $this->phoneNo=$phoneNo;
         }
-        public function setUpdatedOn($updated_on){
-            $this->updated_on=$updated_on;
+        public function setUpdatedOn($updatedOn){
+            $this->updatedOn=$updatedOn;
         }
-        public function setCreatedOn($created_on){
-            $this->created_on=$created_on;
+        public function setCreatedOn($createdOn){
+            $this->createdOn=$createdOn;
         }
         public function setEmail($email){
 
@@ -34,7 +34,6 @@
         public function setPassword($password){
             $this->password=$password;
         }
-        
         //getters
         public function getUserId(){
             return $this->userid;
@@ -46,13 +45,13 @@
             return $this->usertype;
         }
         public function getPhoneNo(){
-            return $this->phone_no;
+            return $this->phoneNo;
         }
         public function getUpdatedOn(){
-            return $this->updated_on;
+            return $this->updatedOn;
         }
         public function getCreatedOn(){
-            return $this->created_on;
+            return $this->createdOn;
         }
         public function getEmail(){
             return $this->email;

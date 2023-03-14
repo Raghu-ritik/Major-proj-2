@@ -1,16 +1,16 @@
 <?php
 
     class AdminPOJO{
-        private $A_ID;
+        private $AId;
        
         //getters
         public function getAID(){
-             return $this->A_ID;
+             return $this->AId;
         }
 
         //setters
-        public function setAID($A_ID){
-            $this->A_ID = $A_ID;
+        public function setAID($AId){
+            $this->AId = $AId;
         }
     }
 ?>

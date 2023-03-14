@@ -58,18 +58,18 @@
                 <p class="divider-text">
                     <span class="bg-light">OR</span>
                 </p>
-                <form>
+                <form action="" method="POST" >
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Full name" type="text">
+                        <input  class="form-control" placeholder="Full name" type="text" name="FullName">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Email address" type="email">
+                        <input  class="form-control" placeholder="Email address" type="email" name="Emails">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -78,26 +78,26 @@
                         <select class="custom-select1" style="max-width: 75px;">
                             <option selected="">+91</option>
                         </select>
-                        <input name="" class="form-control" placeholder="Phone number" type="text">
+                        <input  class="form-control" placeholder="Phone number" type="text" name="PhoneNums">
                     </div> <!-- form-group// -->
 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" placeholder="Create password" type="password">
+                        <input class="form-control" placeholder="Create password" type="password" name="Passwd">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" placeholder="Repeat password" type="password">
+                        <input class="form-control" placeholder="Repeat password" type="password" name="ConfPasswd">
                     </div> <!-- form-group// -->
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+                        <button type="submit" name="register" class="btn btn-primary btn-block"> Create Account </button>
                     </div> <!-- form-group// -->
+                    </form>
                     <p class="text-center">Have an account? <a href="login_C_U.php">Log In</a> </p>
-                </form>
             </article>
         </div> <!-- card.// -->
 

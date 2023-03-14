@@ -1,19 +1,23 @@
 <?php
 
     class ManagersPOJO{
-        private $M_ID;
+        private $MId;
         private $status;
 
         //getters
-        public function getM_ID()
-            return $this->M_ID;
-        public function getStatus()
+        public function getMId(){
+            return $this->MId;
+        }
+        public function getStatus(){
             return $this->status;
+        }
 
         //setters
-        public function setM_ID($M_ID)
-            $this->M_ID = $M_ID;
-        public function setStatus($status)
+        public function setMId($MId){
+            $this->MId = $MId;
+        }
+        public function setStatus($status){
             $this->status = $status;
+        }
     }
 ?>

@@ -1,23 +1,23 @@
 <?php
 
     class IngredientsPOJO{
-        private $I_ID;
-        private $I_Items;
+        private $IId;
+        private $IItems;
 
         //getters
-        public function getI_ID(){
-            return $this->I_ID;
+        public function getIId(){
+            return $this->IId;
         }
-        public function getI_Items(){
-            return $this->I_Items;
+        public function getIItems(){
+            return $this->IItems;
         }
 
         //setters
-        public function setI_ID($I_ID){
-            $this->I_ID = $I_ID;
+        public function setIId($IId){
+            $this->IId = $IId;
         }
-        public function setI_Items($I_Items){
-            $this->I_Items = $I_Items;
+        public function setIItems($IItems){
+            $this->IItems = $IItems;
         }
     }
 ?>
