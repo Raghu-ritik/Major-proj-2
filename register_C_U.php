@@ -26,6 +26,7 @@ if (isset($_POST['register'])) {
         die("Password and Confirm Password don't match");
     }
     if(!UsersDAO::getUserByEmailId($_POST['Emails'])){
+<<<<<<< HEAD
         $u->setUserName($_POST['FullName']);
         $u->setEmail($_POST['Emails']);
         $u->setPhoneNo($_POST['PhoneNums']);
@@ -45,6 +46,32 @@ if (isset($_POST['register'])) {
                 // header('Location: error.php?ec=0');
             }
 }
+=======
+        die("Email already Exists");
+    }
+    $u->setUserName($_POST['FullName']);
+    $u->setEmail($_POST['Emails']);
+    $u->setPhoneNo($_POST['PhoneNums']);
+    $u->setPassword($_POST['ConfPasswd']);
+    $u->setUserType($usertype);
+    print_r($u);
+    die();
+    $userDao = CustomerDAO::addCustomer($u);
+    
+    if($userDao){
+      $_SESSION['uid'] = $id;
+      echo "Use is logging innn";
+      // redirect to main page
+      if (isset($_REQUEST['redirection'])) {
+          redirect_visitor($_REQUEST['redirection']);
+      } else {
+          redirect_visitor('dashboard.php');
+      }
+    } else {
+      echo "There is some error !!";
+      // header('Location: error.php?ec=0');
+    }
+>>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
 
      
 } elseif (!isset($_POST['login'])) {

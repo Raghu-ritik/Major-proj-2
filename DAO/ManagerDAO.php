@@ -63,6 +63,7 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
+<<<<<<< HEAD
             // $conn->autocommit(false);
             try{
 
@@ -72,12 +73,23 @@
                 $phoneNo=$manager->getPhoneNo();
                 $email=$manager->getEmail();
             $password=$manager->getPassword();
+=======
+            mysqli_autocommit($conn, false);
+
+            $userid=getNextManagerId();
+            $username=$customer->getUserName();
+            $usertype="Manager";
+            $phoneNo=$customer->getPhoneNo();
+            $email=$customer->getEmail();
+            $password=$customer->getPassword();
+>>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
             $updatedOn=date("Y-m-d");
             $createdOn=date("Y-m-d");
             
             $query1="Insert into USERS values (:userid,:username,:usertype,:phoneNo,:updatedOn,:createdOn,:email,:password)";
             
             $stmt1=$conn->prepare($query1);
+<<<<<<< HEAD
             
             $stmt1->bindParam('userid',$userid);
             $stmt1->bindParam('username',$username);
@@ -95,6 +107,24 @@
                 $stmt2=$conn->prepare($query2);
                 $stmt2->bindParam('MId',$userid);
                 $stmt2->bindParam('status',$status);
+=======
+
+            $stmt1->bind_param('userid',$userid);
+            $stmt1->bind_param('username',$username);
+            $stmt1->bind_param('usertype',$usertype);
+            $stmt1->bind_param('phoneNo',$phoneNo);
+            $stmt1->bind_param('updatedOn',$updatedOn);
+            $stmt1->bind_param('createdOn',$createdOn);
+            $stmt1->bind_param('email',$email);
+            $stmt1->bind_param('password',$password);
+            $flag=true;
+            if($stmt1->execute()){
+                $query2="Insert into Managers values (:MId,:status);";
+
+                $stmt2=$conn->prepare($query2);
+                $stmt2->bind_param('MId',$userid);
+                $stmt2->bind_param('status','Y');
+>>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
                 if($stmt2->execute()){
                     $flag=true;
                 }
@@ -105,6 +135,7 @@
             else {
                 $flag=false;
             }
+<<<<<<< HEAD
             return $flag;
             // if($flag==true){
             //     $conn->commit();
@@ -117,6 +148,16 @@
             return False;
         }
             
+=======
+
+            if($flag==true){
+                $conn->commit();
+            }
+            else{
+                $conn->rollback();
+            }
+
+>>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
  
 
             return $flag;
