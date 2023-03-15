@@ -27,6 +27,7 @@ if (isset($_POST['register'])) {
     }
     if(!UsersDAO::getUserByEmailId($_POST['Emails'])){
 <<<<<<< HEAD
+<<<<<<< HEAD
         $u->setUserName($_POST['FullName']);
         $u->setEmail($_POST['Emails']);
         $u->setPhoneNo($_POST['PhoneNums']);
@@ -47,6 +48,8 @@ if (isset($_POST['register'])) {
             }
 }
 =======
+=======
+>>>>>>> parent of 3a992b6 (adding the register functionality..)
         die("Email already Exists");
     }
     $u->setUserName($_POST['FullName']);
@@ -71,7 +74,10 @@ if (isset($_POST['register'])) {
       echo "There is some error !!";
       // header('Location: error.php?ec=0');
     }
+<<<<<<< HEAD
 >>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
+=======
+>>>>>>> parent of 3a992b6 (adding the register functionality..)
 
      
 } elseif (!isset($_POST['login'])) {
