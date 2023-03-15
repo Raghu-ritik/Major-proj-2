@@ -3,21 +3,9 @@
         private $userid;
         private $username;
         private $usertype;
-<<<<<<< HEAD
         private $phoneNo;
         private $updatedOn;
         private $createdOn;
-=======
-<<<<<<< HEAD
-        private $phoneNo;
-        private $updatedOn;
-        private $createdOn;
-=======
-        private $phone_no;
-        private $updated_on;
-        private $created_on;
->>>>>>> baa08fb136b2f9687213a0879046da78503f2860
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
         private $email;
         private $password;
         //setters
@@ -30,10 +18,6 @@
         public function setUserType($usertype){
             $this->usertype=$usertype;
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
         public function setPhoneNo($phoneNo){
             $this->phoneNo=$phoneNo;
         }
@@ -42,19 +26,6 @@
         }
         public function setCreatedOn($createdOn){
             $this->createdOn=$createdOn;
-<<<<<<< HEAD
-=======
-=======
-        public function setPhoneNo($phone_no){
-            $this->phone_no=$phone_no;
-        }
-        public function setUpdatedOn($updated_on){
-            $this->updated_on=$updated_on;
-        }
-        public function setCreatedOn($created_on){
-            $this->created_on=$created_on;
->>>>>>> baa08fb136b2f9687213a0879046da78503f2860
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
         }
         public function setEmail($email){
 
@@ -63,13 +34,6 @@
         public function setPassword($password){
             $this->password=$password;
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-        
->>>>>>> baa08fb136b2f9687213a0879046da78503f2860
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
         //getters
         public function getUserId(){
             return $this->userid;
@@ -81,10 +45,6 @@
             return $this->usertype;
         }
         public function getPhoneNo(){
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
             return $this->phoneNo;
         }
         public function getUpdatedOn(){
@@ -92,18 +52,6 @@
         }
         public function getCreatedOn(){
             return $this->createdOn;
-<<<<<<< HEAD
-=======
-=======
-            return $this->phone_no;
-        }
-        public function getUpdatedOn(){
-            return $this->updated_on;
-        }
-        public function getCreatedOn(){
-            return $this->created_on;
->>>>>>> baa08fb136b2f9687213a0879046da78503f2860
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
         }
         public function getEmail(){
             return $this->email;
