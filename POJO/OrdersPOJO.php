@@ -10,35 +10,49 @@
         private $MId;
 
         //getters
-        public function getOId()
+        public function getOId(){
             return $this->OId;
-        public function getQuantity()
+        }
+        public function getQuantity(){
             return  $this->Quantity;
-        public function getUpdatedOn()
-            return $this->UpdatedOn;
-        public function getCreatedOn()
-            return $this->CreatedOn;
-        public function getCId()
+        }
+        public function getUpdatedOn(){
+            return $this->updatedOn;
+        }
+        public function getCreatedOn(){
+            return $this->createdOn;
+        }
+        public function getCId(){
             return $this->CId;
-        public function getPId()
+        }
+        public function getPId(){
             return $this->PId;
-        public function getMId()
+        }
+        public function getMId(){
             return $this->MId;
+        }
 
         //setters
-        public function setOId($OId)
+        public function setOId($OId){
             $this->OId = $OId;
-        public function setQuantity($Quantity)
+        }
+        public function setQuantity($Quantity){
             $this->Quantity = $Quantity;
-        public function setUpdatedOn($updatedOn)
+        }
+        public function setUpdatedOn($updatedOn){
             $this->updatedOn=$updatedOn;
-        public function setCreatedOn($createdOn)
+        }
+        public function setCreatedOn($createdOn){
             $this->createdOn=$createdOn;
-        public function setCId($CId)
-            $this->CId=$CId
-        public function setPId($PId)
-            $this->PId=$PId
-        public function setMId($MId)
-            $this->MId=$MId
+        }
+        public function setCId($CId){
+            $this->CId=$CId;
+        }
+        public function setPId($PId){
+            $this->PId=$PId;
+        }
+        public function setMId($MId){
+            $this->MId=$MId;
+        }
     }
 ?>

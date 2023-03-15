@@ -67,8 +67,8 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-            $conn->autocommit(false);
-            $userid=getNextCustomerId();
+            mysqli_autocommit($conn, false);
+            $userid= CustomerDAO::getNextCustomerId();
             $username=$customer->getUserName();
             $usertype="Customer";
             $phoneNo=$customer->getPhoneNo();
@@ -81,21 +81,21 @@
             
             $stmt1=$conn->prepare($query1);
 
-            $stmt1->bind_param('userid',$userid);
-            $stmt1->bind_param('username',$username);
-            $stmt1->bind_param('usertype',$usertype);
-            $stmt1->bind_param('phoneNo',$phoneNo);
-            $stmt1->bind_param('updatedOn',$updatedOn);
-            $stmt1->bind_param('createdOn',$createdOn);
-            $stmt1->bind_param('email',$email);
-            $stmt1->bind_param('password',$password);
+            $stmt1->bindParam('userid',$userid);
+            $stmt1->bindParam('username',$username);
+            $stmt1->bindParam('usertype',$usertype);
+            $stmt1->bindParam('phoneNo',$phoneNo);
+            $stmt1->bindParam('updatedOn',$updatedOn);
+            $stmt1->bindParam('createdOn',$createdOn);
+            $stmt1->bindParam('email',$email);
+            $stmt1->bindParam('password',$password);
             $flag=true;
             if($stmt1->execute()){
                 $query2="Insert into Customers values (:CId,:status);";
 
                 $stmt2=$conn->prepare($query2);
-                $stmt2->bind_param('CId',$userid);
-                $stmt2->bind_param('status','Y');
+                $stmt2->bindParam('CId',$userid);
+                $stmt2->bindParam('status','Y');
                 if($stmt2->execute()){
                     $flag=true;
                 }

@@ -34,9 +34,5 @@ class DBConnect{
         // }
         // return $conn;
     }
-
-    public static function closeConnection(){
-        $conn->close();
-    }
 }
 ?>

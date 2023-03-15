@@ -19,13 +19,23 @@ if (isset($_SESSION['uid'])) {
     }
 }
 draw_Custom_Header();
-$usertype='Manager';
-if (isset($_POST['login'])) {
+$usertype='Customer';
+if (isset($_POST['register'])) {
     $u= new UsersPOJO();
-    $u->setEmail($_POST['MAuser']);
-    $u->setPassword($_POST['MApass']);
+    if($_POST['Passwd'] !== $_POST['ConfPasswd']){
+        die("Password and Confirm Password don't match");
+    }
+    if(!UsersDAO::getUserByEmailId($_POST['Emails'])){
+        die("Email already Exists");
+    }
+    $u->setUserName($_POST['FullName']);
+    $u->setEmail($_POST['Emails']);
+    $u->setPhoneNo($_POST['PhoneNums']);
+    $u->setPassword($_POST['ConfPasswd']);
     $u->setUserType($usertype);
-    $userDao = UsersDAO::validateUser($u);
+    print_r($u);
+    die();
+    $userDao = CustomerDAO::addCustomer($u);
     
     if($userDao){
       $_SESSION['uid'] = $id;

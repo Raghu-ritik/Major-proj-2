@@ -63,7 +63,7 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-            $conn->autocommit(false);
+            mysqli_autocommit($conn, false);
 
             $userid=getNextManagerId();
             $username=$customer->getUserName();

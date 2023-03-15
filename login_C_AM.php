@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
     $u->setEmail($_POST['MAuser']);
     $u->setPassword($_POST['MApass']);
     $u->setUserType($usertype);
-    $userDao = UsersDAO::validateUser($u);
+    $userDao = AdminDAO::validateAdmin($u);
     
     if($userDao){
       $_SESSION['uid'] = $id;

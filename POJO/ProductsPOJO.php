@@ -9,31 +9,43 @@
         private $IId;
 
         //getters
-        public function getPId() 
+        public function getPId() {
             return $this->PId;
-        public function getPName()
+        }
+        public function getPName(){
             return $this->PName;
-        public function getQuantity()
+        }
+        public function getQuantity(){
             return $this->Quantity;
-        public function getcreatedOn()
+        }
+        public function getcreatedOn(){
             return $this->createdOn;
-        public function getupdatedOn()
+        }
+        public function getupdatedOn(){
             return $this->updatedOn;
-        public function getIId()
+        }
+        public function getIId(){
             return $this->IId;
+        }
 
         //setters
-        public function setPId($PId)
+        public function setPId($PId){
             $this->PId = $PId;
-        public function setPName($PName)
+        }
+        public function setPName($PName){
             $this->PName = $PName;
-        public function setQuantity($Quantity)
+        }
+        public function setQuantity($Quantity){
             $this->Quantity=$Quantity;
-        public function setcreatedOn($createdOn)
+        }
+        public function setcreatedOn($createdOn){
             $this->createdOn=$createdOn;
-        public function setupdatedOn($updatedOn)
+        }
+        public function setupdatedOn($updatedOn){
             $this->updatedOn=$updatedOn;
-        public function setIId($IId)
+        }
+        public function setIId($IId){
             $this->IId=$IId;
+        }
     }
 ?>
