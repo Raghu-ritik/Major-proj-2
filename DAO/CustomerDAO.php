@@ -67,15 +67,10 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-<<<<<<< HEAD
             try{
 
                 // $conn->autoCommit(false);
                 $userid= CustomerDAO::getNextCustomerId();
-=======
-            mysqli_autocommit($conn, false);
-            $userid= CustomerDAO::getNextCustomerId();
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
             $username=$customer->getUserName();
             $usertype="Customer";
             $phoneNo=$customer->getPhoneNo();
@@ -87,11 +82,7 @@
             $query1="Insert into USERS values (:userid,:username,:usertype,:phoneNo,:updatedOn,:createdOn,:email,:password)";
             
             $stmt1=$conn->prepare($query1);
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
             $stmt1->bindParam('userid',$userid);
             $stmt1->bindParam('username',$username);
             $stmt1->bindParam('usertype',$usertype);
@@ -102,20 +93,12 @@
             $stmt1->bindParam('password',$password);
             $flag=true;
             if($stmt1->execute()){
-<<<<<<< HEAD
                 $status = "Y"; //default Status;
                 $query2="Insert into Customers values (:CId,:status);";
                 
                 $stmt2=$conn->prepare($query2);
                 $stmt2->bindParam('CId',$userid);
                 $stmt2->bindParam('status',$status);
-=======
-                $query2="Insert into Customers values (:CId,:status);";
-
-                $stmt2=$conn->prepare($query2);
-                $stmt2->bindParam('CId',$userid);
-                $stmt2->bindParam('status','Y');
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
                 if($stmt2->execute()){
                     $flag=true;
                 }
@@ -128,7 +111,6 @@
             }
 
             if($flag==true){
-<<<<<<< HEAD
                 // $conn->commit();
                 echo "some 115";
             }          
@@ -141,18 +123,6 @@
         }
         }
         
-=======
-                $conn->commit();
-            }
-            else{
-                $conn->rollback();
-            }
-
-
-            return $flag;
-        }
-
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
         
     }
 ?>
