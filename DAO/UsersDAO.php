@@ -22,7 +22,6 @@
             }
             else{
                 $u=null;
-                echo "user not found";
                 return false;
             }
             return $u;

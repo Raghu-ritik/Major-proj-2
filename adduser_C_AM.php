@@ -19,26 +19,24 @@ if (isset($_SESSION['uid'])) {
     }
 }
 draw_Custom_Header();
-$usertype='Customer';
-if (isset($_POST['register'])) {
+$usertype='Manager';
+if (isset($_POST['register_manager'])) {
     $u= new UsersPOJO();
-    if($_POST['Passwd'] !== $_POST['ConfPasswd']){
-        die("Password and Confirm Password don't match");
-    }
+ 
     if(!UsersDAO::getUserByEmailId($_POST['Emails'])){
         $u->setUserName($_POST['FullName']);
         $u->setEmail($_POST['Emails']);
         $u->setPhoneNo($_POST['PhoneNums']);
         $u->setPassword($_POST['ConfPasswd']);
         $u->setUserType($usertype);
-        $userDao = CustomerDAO::addCustomer($u);       
+        $userDao = ManagerDAO::addManager($u);       
         if($userDao){
             $_SESSION['uid'] = $id;
             // redirect to main page
                 if (isset($_REQUEST['redirection'])) {
                 redirect_visitor($_REQUEST['redirection']);
                 } else {
-                    redirect_visitor('login_C_U.php');
+                    redirect_visitor('login_C_AM.php');
                 }
             } else {
                 echo "There is some error !!";
@@ -51,7 +49,7 @@ if (isset($_POST['register'])) {
     $redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');
 
     $GLOBALS['smarty']->assign('redirection', htmlentities($redirection, ENT_QUOTES));
-    display_smarty_template('register.tpl',"user");
+    display_smarty_template('adduser.tpl',"admin");
 } else {
     echo 'Check your config';
 }

@@ -67,8 +67,10 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-            // $conn->autocommit(false);
-            $userid= CustomerDAO::getNextCustomerId();
+            try{
+
+                // $conn->autoCommit(false);
+                $userid= CustomerDAO::getNextCustomerId();
             $username=$customer->getUserName();
             $usertype="Customer";
             $phoneNo=$customer->getPhoneNo();
@@ -80,7 +82,7 @@
             $query1="Insert into USERS values (:userid,:username,:usertype,:phoneNo,:updatedOn,:createdOn,:email,:password)";
             
             $stmt1=$conn->prepare($query1);
-
+            
             $stmt1->bindParam('userid',$userid);
             $stmt1->bindParam('username',$username);
             $stmt1->bindParam('usertype',$usertype);
@@ -91,11 +93,12 @@
             $stmt1->bindParam('password',$password);
             $flag=true;
             if($stmt1->execute()){
+                $status = "Y"; //default Status;
                 $query2="Insert into Customers values (:CId,:status);";
-
+                
                 $stmt2=$conn->prepare($query2);
                 $stmt2->bindParam('CId',$userid);
-                $stmt2->bindParam('status','Y');
+                $stmt2->bindParam('status',$status);
                 if($stmt2->execute()){
                     $flag=true;
                 }
@@ -108,16 +111,18 @@
             }
 
             if($flag==true){
-                $conn->commit();
-            }
-            else{
-                $conn->rollback();
-            }
-
-
+                // $conn->commit();
+                echo "some 115";
+            }          
+            echo "$flag the flag value";
             return $flag;
+        }catch(Exception $e){
+            // $conn->rollback();
+            echo "Failed: " . $e->getMessage();
+            return False;
         }
-
+        }
+        
         
     }
 ?>
