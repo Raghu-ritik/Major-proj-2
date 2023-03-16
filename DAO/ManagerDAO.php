@@ -105,10 +105,10 @@
             }
 
             if($flag==true){
-                $conn->commit();
+                $mysqli_connect($conn);
             }
             else{
-                $conn->rollback();
+                $mysqli_rollback($conn);
             }
 
  
