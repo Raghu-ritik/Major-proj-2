@@ -1,7 +1,14 @@
 
 {literal}
 <style>
-   
+    .registration-form{
+      /* background: #f7f7f7; */
+      padding: 20px;
+     
+      margin: 100px 0px;
+      background: inherit;
+      backdrop-filter: blur(10px);
+    }
   .Admin-Back{
        
       background-color: #ffffff;
@@ -10,7 +17,7 @@
   }
 </style>
 {/literal}
-<div class="container-fluid Admin-Back" style="background-image: url('{$g_base_url}/templates/assets/myimages/background1.jpg');">
+<div class="container-fluid Admin-Back" style="background-image: url('{$g_base_url}/templates/assets/myimages/back.jpg');">
  <div class="row">
    <div class="col-sm-4">
    </div>

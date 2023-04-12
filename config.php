@@ -16,7 +16,7 @@ if (!defined('config')) {
     define('APP_DB_HOST', isset($_ENV['APP_DB_HOST']) ? $_ENV['APP_DB_HOST'] : 'localhost');
 
   
-    $GLOBALS['CONFIG']['db_prefix'] = isset($_ENV['DB_PREFIX']) ? $_ENV['DB_PREFIX'] : 'odm_';
+    $GLOBALS['CONFIG']['db_prefix'] = isset($_ENV['DB_PREFIX']) ? $_ENV['DB_PREFIX'] : 'cafe_';
 
     /*** DO NOT EDIT BELOW THIS LINE ***/
 

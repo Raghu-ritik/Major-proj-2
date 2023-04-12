@@ -91,77 +91,26 @@
             <h1>Cafeteen</h1>
             <h3>&mdash; MENU &mdash; </h3>
         </div>
-        <div class="food-items">
-            <img src="{$g_base_url}\templates\assets/uploadImage/foodImgs/burger.jpg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Smoky Hamburger</h5>
-                    <h5 class="price"> $8 </h5>
+        {foreach $allProducts as $product}
+            <form method="post" action="cart.php?action=add&id={$product.P_ID}">
+                
+                <div class="food-items">
+                    <img src="{$g_base_url}\templates\assets/uploadImage/foodImgs/{$product.images}">
+                    <div class="details">
+                        <div class="details-sub">
+                            <h5 style="color:black">{{$product.P_Name}}</h5>
+                            <h5 class="price" style="color:black"> {{$product.price}} </h5>
+                        </div>
+                        <p>{{$product.description}}</p>
+                        <input type="hidden" name="item_name" value="{$product.P_Name}">
+                        <input type="hidden" name="item_price" value="{$product.price}">
+                        <input type="hidden" name="item_id" value="{$product.P_ID}">
+                        <h5 class="text-info">Quantity: <input type="number" min="1" max="25" name="item_quantity" class="form-control" value="1" style="width: 60px;"> </h5>
+                        <button type="submit" name="add" value="Add to Cart">Add To Cart</button>
+                    </div>
                 </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit reiciendis nam non quia! Earum eveniet minus. Facilis explicabo natus nihil voluptatem eveniet pariatur.</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
+            </form>
 
-        <div class="food-items">
-            <img src="{$g_base_url}/templates/assets/uploadImage/foodImgs/poha_jalebi.png">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Honey Garlic Chicken</h5>
-                    <h5 class="price"> $15 </h5>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor sit amet consectetur adipisicing elit.</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="food-items">
-            <img src="{$g_base_url}\templates\assets/uploadImage/foodImgs/soup.jpeg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Manchow Soup</h5>
-                    <h5 class="price"> $8 </h5>
-                </div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus quibusdam facilis, magni consectetur necessitatibus.</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="food-items">
-            <img src="{$g_base_url}\templates\assets/uploadImage/foodImgs/Spaghetti.jpeg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Basil Pesto Spaghetti</h5>
-                    <h5 class="price"> $12 </h5>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="food-items">
-            <img src="{$g_base_url}\templates\assets/uploadImage/foodImgs/pancakes.jpg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Roast Salmon</h5>
-                    <h5 class="price"> $15 </h5>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="food-items">
-            <img src="{$g_base_url}\templates\assets/uploadImage/foodImgs/Sandwich.jpeg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>BBQ Sandwich</h5>
-                    <h5 class="price"> $10 </h5>
-                </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus reiciendis nam non quia! Earum eveniet quia minus nemo.</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-        </div>
+         {/foreach}
     </div>
 </div>

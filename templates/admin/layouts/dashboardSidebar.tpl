@@ -61,7 +61,7 @@
                    </li>  *}
           
                     <li><a href="knowMore.php" aria-expanded="false"><i class="fa fa-info-circle"></i><span class="hide-menu">Know More</span></a></li>
-                    <li><a href="logout.php" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">logout</span></a></li>
+                    <li><a href="logout_C_AM.php" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">logout</span></a></li>
 
                </ul>    
            </nav>

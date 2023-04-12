@@ -9,7 +9,8 @@ if (!isset($_REQUEST['last_message'])) {
 }
 
 // callPluginMethod('onBeforeLogin');
-
+$loginMessage = '';
+$GLOBALS['smarty']->assign('loginMessage', $loginMessage);
 if (isset($_SESSION['uid'])) {
     // redirect to main page
     if (isset($_REQUEST['redirection'])) {
@@ -27,9 +28,8 @@ if (isset($_POST['login'])) {
     $u->setUserType($usertype);
     $userDao = CustomerDAO::validateCustomer($u);
     
-    if($userDao){
-      $_SESSION['uid'] = $id;
-      echo "Use is logging innn";
+    if(isset($userDao['userid'])){
+      $_SESSION['userid'] = $userDao['userid'];
       // redirect to main page
       if (isset($_REQUEST['redirection'])) {
           redirect_visitor($_REQUEST['redirection']);
@@ -37,19 +37,16 @@ if (isset($_POST['login'])) {
           redirect_visitor('dashboard.php');
       }
     } else {
-      echo "There is some error !!";
-      // header('Location: error.php?ec=0');
+        $loginMessage = $userDao['error'];
+        $GLOBALS['smarty']->assign('loginMessage', $loginMessage);
     }
+} 
 
-     
-} elseif (!isset($_POST['login'])) {
-    $redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');
+$redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');
 
-    $GLOBALS['smarty']->assign('redirection', htmlentities($redirection, ENT_QUOTES));
-    display_smarty_template('login.tpl',"user");
-} else {
-    echo 'Check your config';
-}
+$GLOBALS['smarty']->assign('redirection', htmlentities($redirection, ENT_QUOTES));
+display_smarty_template('login.tpl',"user");
+
 display_smarty_template('layouts/CustomFooter.tpl',"user");
 
 ?>

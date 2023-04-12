@@ -36,6 +36,7 @@
     <link href="{$g_base_url}\templates\assets/css/lib/sweetalert/sweetalert.css" rel="stylesheet">
     <link href="{$g_base_url}\templates\assets/css/lib/datepicker/bootstrap-datepicker3.min.css" rel="stylesheet"> *}
     <link href="{$g_base_url}\templates\assets/css/style.css" rel="stylesheet">
+    <link href="{$g_base_url}\templates\assets/css/layouts/header.css" rel="stylesheet">
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -49,7 +50,7 @@
 
                 </div>
             </marquee>
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light" id="navbar">
 
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.php">
@@ -60,19 +61,18 @@
 
                     </a>
                 </div>
-
+                <ul>
+                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="contact.php">Contactus</a></li>
+                <li><a href="knowmore.php">Know more</a></li>
+                <li><a href="logout.php">logout</a></li>
+              </ul>
+              <a class="btn-book-a-table" href="cart.php"> <i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;&nbsp;  Cart</a>
+              <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+              <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
                 <div class="navbar-collapse">
 
-                    <ul class="navbar-nav mr-auto mt-md-0">
 
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  "
-                                href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-                        <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  "
-                                href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-
-
-
-                    </ul>
                     <marquee behavior="scroll" direction="left" scrollamount="1">
                         <p style="color: red;">
                             Welcome to cafeteen we are here with best food and best Quality..
@@ -80,5 +80,5 @@
                     </marquee>
                 </div>
             </nav>
+
         </div>
-     

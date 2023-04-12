@@ -15,9 +15,11 @@ if (!isset($_REQUEST['last_message'])) {
 
 // include('./constant/layout/customFooter.php');
 
-
-  
-if (!isset($_POST['login'])) {
+if (!isset($_POST['checkout'])) {
+    $allProducts = ProductDAO::getAllProducts();
+    // print_r($allProducts);
+    // die;
+    $GLOBALS['smarty']->assign('allProducts',$allProducts);
     $redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');
     drawUserSideBar();
     $GLOBALS['smarty']->assign('redirection', htmlentities($redirection, ENT_QUOTES));

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0, created on 2023-03-12 22:41:59
+/* Smarty version 4.0.0, created on 2023-04-05 13:25:51
   from 'C:\xampp\htdocs\Major-proj-2\templates\user\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_640e4727549c93_80079517',
+  'unifunc' => 'content_642d5abf82e1d0_41418406',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '031e7d8ea74e6695494a4181634a647d12c9edd0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Major-proj-2\\templates\\user\\dashboard.tpl',
-      1 => 1678657315,
+      1 => 1680693949,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_640e4727549c93_80079517 (Smarty_Internal_Template $_smarty_tpl) {
+function content_642d5abf82e1d0_41418406 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
     
         *{
@@ -114,84 +114,41 @@ function content_640e4727549c93_80079517 (Smarty_Internal_Template $_smarty_tpl)
             <h1>Cafeteen</h1>
             <h3>&mdash; MENU &mdash; </h3>
         </div>
-        <div class="food-items">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
-\templates\assets/uploadImage/foodImgs/burger.jpg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Smoky Hamburger</h5>
-                    <h5 class="price"> $8 </h5>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit reiciendis nam non quia! Earum eveniet minus. Facilis explicabo natus nihil voluptatem eveniet pariatur.</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allProducts']->value, 'product');
+$_smarty_tpl->tpl_vars['product']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['product']->value) {
+$_smarty_tpl->tpl_vars['product']->do_else = false;
+?>
 
-        <div class="food-items">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
-/templates/assets/uploadImage/foodImgs/poha_jalebi.png">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Honey Garlic Chicken</h5>
-                    <h5 class="price"> $15 </h5>
+            <div class="food-items">
+                <img src="<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
+\templates\assets/uploadImage/foodImgs/<?php echo $_smarty_tpl->tpl_vars['product']->value['images'];?>
+">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5 style="color:black"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['product']->value['P_Name'];
+$_prefixVariable1 = ob_get_clean();
+echo $_prefixVariable1;?>
+</h5>
+                        <h5 class="price" style="color:black"> <?php ob_start();
+echo $_smarty_tpl->tpl_vars['product']->value['price'];
+$_prefixVariable2 = ob_get_clean();
+echo $_prefixVariable2;?>
+ </h5>
+                    </div>
+                    <p><?php ob_start();
+echo $_smarty_tpl->tpl_vars['product']->value['description'];
+$_prefixVariable3 = ob_get_clean();
+echo $_prefixVariable3;?>
+</p>
+                    <button>Add To Cart</button>
                 </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor sit amet consectetur adipisicing elit.</p>
-                <button>Add To Cart</button>
             </div>
-        </div>
-
-        <div class="food-items">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
-\templates\assets/uploadImage/foodImgs/soup.jpeg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Manchow Soup</h5>
-                    <h5 class="price"> $8 </h5>
-                </div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus quibusdam facilis, magni consectetur necessitatibus.</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="food-items">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
-\templates\assets/uploadImage/foodImgs/Spaghetti.jpeg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Basil Pesto Spaghetti</h5>
-                    <h5 class="price"> $12 </h5>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="food-items">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
-\templates\assets/uploadImage/foodImgs/pancakes.jpg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Roast Salmon</h5>
-                    <h5 class="price"> $15 </h5>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-
-        <div class="food-items">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
-\templates\assets/uploadImage/foodImgs/Sandwich.jpeg">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>BBQ Sandwich</h5>
-                    <h5 class="price"> $10 </h5>
-                </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus reiciendis nam non quia! Earum eveniet quia minus nemo.</p>
-                <button>Add To Cart</button>
-            </div>
-        </div>
-        </div>
+         <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
 </div><?php }
 }
