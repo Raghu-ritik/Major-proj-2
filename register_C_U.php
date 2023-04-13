@@ -26,6 +26,30 @@ if (isset($_POST['register'])) {
         die("Password and Confirm Password don't match");
     }
     if(!UsersDAO::getUserByEmailId($_POST['Emails'])){
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $u->setUserName($_POST['FullName']);
+        $u->setEmail($_POST['Emails']);
+        $u->setPhoneNo($_POST['PhoneNums']);
+        $u->setPassword($_POST['ConfPasswd']);
+        $u->setUserType($usertype);
+        $userDao = CustomerDAO::addCustomer($u);       
+        if($userDao){
+            $_SESSION['uid'] = $id;
+            // redirect to main page
+                if (isset($_REQUEST['redirection'])) {
+                redirect_visitor($_REQUEST['redirection']);
+                } else {
+                    redirect_visitor('login_C_U.php');
+                }
+            } else {
+                echo "There is some error !!";
+                // header('Location: error.php?ec=0');
+            }
+}
+=======
+=======
+>>>>>>> parent of 3a992b6 (adding the register functionality..)
         die("Email already Exists");
     }
     $u->setUserName($_POST['FullName']);
@@ -50,6 +74,10 @@ if (isset($_POST['register'])) {
       echo "There is some error !!";
       // header('Location: error.php?ec=0');
     }
+<<<<<<< HEAD
+>>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
+=======
+>>>>>>> parent of 3a992b6 (adding the register functionality..)
 
      
 } elseif (!isset($_POST['login'])) {

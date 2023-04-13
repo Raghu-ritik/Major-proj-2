@@ -9,11 +9,8 @@ if (!isset($_REQUEST['last_message'])) {
 }
 
  
-    draw_header("UserDashboard");
-// include('./constant/layout/header.php');
-// include('./constant/layout/sidebar.php');
-
-// include('./constant/layout/customFooter.php');
+    draw_header("UserDashboard","admin");
+ 
 
 
   

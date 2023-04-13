@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0, created on 2023-03-12 19:14:43
+/* Smarty version 4.0.0, created on 2023-03-19 07:49:00
   from 'C:\xampp\htdocs\Major-proj-2\templates\admin\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_640e1693ae0054_68132516',
+  'unifunc' => 'content_6416b05cb1da40_48152151',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f0193ae692d1e79fdb304ea74e9607f470053a3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Major-proj-2\\templates\\admin\\login.tpl',
-      1 => 1678644881,
+      1 => 1679208539,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,18 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_640e1693ae0054_68132516 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6416b05cb1da40_48152151 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-
 <style>
-   
+    .registration-form{
+      /* background: #f7f7f7; */
+      padding: 20px;
+     
+      margin: 100px 0px;
+      background: inherit;
+      backdrop-filter: blur(10px);
+    }
   .Admin-Back{
        
       background-color: #ffffff;
@@ -35,7 +41,7 @@ function content_640e1693ae0054_68132516 (Smarty_Internal_Template $_smarty_tpl)
 </style>
 
 <div class="container-fluid Admin-Back" style="background-image: url('<?php echo $_smarty_tpl->tpl_vars['g_base_url']->value;?>
-/templates/assets/myimages/background1.jpg');">
+/templates/assets/myimages/back.jpg');">
  <div class="row">
    <div class="col-sm-4">
    </div>

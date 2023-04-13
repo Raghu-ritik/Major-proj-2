@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0, created on 2023-03-12 22:26:29
+/* Smarty version 4.0.0, created on 2023-03-19 07:43:26
   from 'C:\xampp\htdocs\Major-proj-2\templates\admin\layouts\dashboardSidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_640e43857b9de9_90206192',
+  'unifunc' => 'content_6416af0e75b5f4_36911906',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7c38fff9705b2fd0856dc3084a7431bc65cc8766' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Major-proj-2\\templates\\admin\\layouts\\dashboardSidebar.tpl',
-      1 => 1678656262,
+      1 => 1679208183,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_640e43857b9de9_90206192 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6416af0e75b5f4_36911906 (Smarty_Internal_Template $_smarty_tpl) {
 ?> 
 
 
@@ -74,7 +74,7 @@ function content_640e43857b9de9_90206192 (Smarty_Internal_Template $_smarty_tpl)
                
                                                   
                     <li><a href="knowMore.php" aria-expanded="false"><i class="fa fa-info-circle"></i><span class="hide-menu">Know More</span></a></li>
-                    <li><a href="logout.php" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">logout</span></a></li>
+                    <li><a href="logout_C_AM.php" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">logout</span></a></li>
 
                </ul>    
            </nav>

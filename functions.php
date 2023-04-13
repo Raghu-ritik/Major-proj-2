@@ -2,11 +2,6 @@
 
 use Aura\Html\Escaper as e;
 
-// include_once('Plugin_class.php');
-// $plugin = new Plugin();
-
-// Set the Smarty variables
-
 require_once('includes/smarty/libs/Smarty.class.php');
 $GLOBALS['smarty'] = new Smarty();
 $GLOBALS['smarty']->template_dir = dirname(__FILE__) . '/templates/common/';
@@ -24,7 +19,8 @@ function draw_Custom_Header(){
 }
 
 
-function draw_header($pageTitle, $lastmessage = '')
+
+function draw_header($pageTitle,$userType="user", $lastmessage = '')
 {
     // global $pdo;
 
@@ -59,7 +55,7 @@ function draw_header($pageTitle, $lastmessage = '')
     // $GLOBALS['smarty']->assign('base_url', $GLOBALS['CONFIG']['base_url']);
     // $GLOBALS['smarty']->assign('page_title', $pageTitle);
     // $GLOBALS['smarty']->assign('lastmessage', urldecode($lastmessage));
-    display_smarty_template('/layouts/header.tpl',"user");
+    display_smarty_template('/layouts/header.tpl',$userType);
 
 }
 
@@ -128,7 +124,11 @@ function msg($s)
         return false;
     }
 }
-
+function Display_last_msg($lastmessage,$typeof){
+    $GLOBALS['smarty']->assign('lastmessage', $lastmessage);
+    $GLOBALS['smarty']->assign('typeof', $typeof);
+    display_smarty_template('layouts/StatusMsg.tpl',"user");
+}
 /*
  * This function will check for the existence of a template file
  * in the current template folder and if not there will search for it

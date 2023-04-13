@@ -11,7 +11,7 @@
             //prepared statement
             $query="select * from users INNER JOIN customers ON users.userid=customers.C_ID where email=:email and password=:password and usertype=:usertype ";
             $stmt=$conn->prepare($query);
-    
+
             $stmt->bindParam(':email',$email);
             $stmt->bindParam(':password',$password);
             $stmt->bindParam(':usertype',$usertype);
@@ -22,21 +22,16 @@
             {
                 //if customer or manager is deactivated by admin
                 if($result[0]['status']=='N'){
-                    echo "Customer not active";
-                    $flag=false;
+                    $flag=array("error"=>"Customer not active");
                 }
                 //store userProfile here
                 else{
-                    print_r($result[0]['email']);
-                    $flag=true;
+                    return $result[0];
                 }
             }
             else{
-                echo "Customer not found";
-                
-                $flag=false;
+                $flag=array("error"=>"Customer not found");
             }
- 
             return $flag;
 
         }
@@ -67,7 +62,7 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-            mysqli_autocommit($conn, false);
+            // $conn->autocommit(false);
             $userid= CustomerDAO::getNextCustomerId();
             $username=$customer->getUserName();
             $usertype="Customer";
@@ -108,10 +103,10 @@
             }
 
             if($flag==true){
-                $mysqli_commit($conn);
+                $conn->commit();
             }
             else{
-                $mysqli_rollback($conn);
+                $conn->rollback();
             }
 
 

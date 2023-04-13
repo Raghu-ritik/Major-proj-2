@@ -63,7 +63,7 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-            mysqli_autocommit($conn, false);
+            $conn->autocommit(false);
 
             $userid=getNextManagerId();
             $username=$customer->getUserName();
@@ -105,10 +105,10 @@
             }
 
             if($flag==true){
-                $mysqli_connect($conn);
+                $conn->commit();
             }
             else{
-                $mysqli_rollback($conn);
+                $conn->rollback();
             }
 
  

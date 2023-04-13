@@ -1,3 +1,4 @@
+ 
 <?php
     class UsersDAO{
         public static function getUserByEmailId($email){
@@ -26,6 +27,7 @@
                 return false;
             }
             return $u;
+
         }
     }
 ?>
