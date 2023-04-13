@@ -34,11 +34,13 @@ if (isset($_POST['login'])) {
       if (isset($_REQUEST['redirection'])) {
           redirect_visitor($_REQUEST['redirection']);
       } else {
-          redirect_visitor('dashboard.php');
+            $last_message = "Contact Message is saved !";
+            Display_last_msg($last_message,"success");
+            redirect_visitor('dashboard.php');
       }
     } else {
-        $loginMessage = $userDao['error'];
-        $GLOBALS['smarty']->assign('loginMessage', $loginMessage);
+        $last_message = $userDao['error'];
+        $GLOBALS['smarty']->assign('loginMessage', $last_message);
     }
 } 
 

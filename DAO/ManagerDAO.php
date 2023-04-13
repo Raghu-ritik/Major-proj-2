@@ -103,21 +103,6 @@
             else {
                 $flag=false;
             }
-<<<<<<< HEAD
-            return $flag;
-            // if($flag==true){
-            //     $conn->commit();
-            // }
-            // else{
-            //     $conn->rollback();
-            // }
-        }
-        catch(Exception  $e){
-            return False;
-        }
-            
-=======
->>>>>>> parent of 3a992b6 (adding the register functionality..)
 
             if($flag==true){
                 $conn->commit();

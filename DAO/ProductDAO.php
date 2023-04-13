@@ -20,9 +20,29 @@
             }
         }
 
-        public static function getNextCustomerId(){
+        public static function getProductById($Prod_id){
             $conn=DBConnect::getConnection();
-            $query="SELECT MAX(userid) FROM users WHERE usertype = 'Customer'";
+            
+             
+            //prepared statement
+            $query="SELECT * FROM `products` WHERE P_ID = '$Prod_id'";
+            $stmt=$conn->prepare($query);
+            $stmt->execute();
+            $result=$stmt->fetchAll();
+            if($stmt->rowCount()>0)
+            {
+                return $result;
+            }
+            else{
+                echo "No Products Found !";   
+                return false;
+            }
+        }
+
+
+        public static function getNextProductId(){
+            $conn=DBConnect::getConnection();
+            $query="SELECT MAX(P_ID) FROM products ";
 
             $stmt=$conn->prepare($query);
 
@@ -32,23 +52,23 @@
             $newCustomer="";
             if($stmt->rowCount()>0){
                
-                $newCustomer="C".(intval(substr($result,1))+1);
+                $newCustomer="P".(intval(substr($result,1))+1);
             } 
             else
-                $newCustomer="C101";
+                $newCustomer="P101";
            
             
             return $newCustomer;
         }
 
-        public static function addCustomer($customer){
+        public static function addProduct($customer){
 
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
             // $conn->autocommit(false);
-            $userid= CustomerDAO::getNextCustomerId();
-            $username=$customer->getUserName();
+            $prodid= ProductDAO::getNextProductId();
+            $prodname=$customer->getUserName();
             $usertype="Customer";
             $phoneNo=$customer->getPhoneNo();
             $email=$customer->getEmail();

@@ -21,22 +21,21 @@
                 <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
                     <div class="content ps-0 ps-lg-5">
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
+                        Welcome to our food order and canteen management website! We are a team of professionals dedicated to making your food ordering and canteen management experience seamless and enjoyable. Our website offers a wide range of services including online ordering, cashless payment options, and real-time tracking of your order.
                         </p>
                         <ul>
-                            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                            <li><i class="bi bi-check2-all"></i> Best Food For All.</li>
+                            <li><i class="bi bi-check2-all"></i> Healthy Environment.</li>
+                            <li><i class="bi bi-check2-all"></i> On Demand Music for better Environment.</li>
+                            <li><i class="bi bi-check2-all"></i> Best Food Facility.</li>
+                            <li><i class="bi bi-check2-all"></i> Remote Order Facility.</li>
                         </ul>
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-                        </p>
+                        Our mission is to provide you with a convenient and hassle-free way to order food and manage your canteen needs. Whether you are a student, employee, or just looking for a delicious meal, our platform has got you covered.</p>
                         
                         <div class="position-relative mt-4">
                             <img src="{$g_base_url}/templates/assets/myimages/About/about.jpg" class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/" class="glightbox play-btn"></a>
+                            <a href="https://youtu.be/9gHJONXyfVk" class="glightbox play-btn"></a>
                         </div>
                     </div>
                 </div>
@@ -55,9 +54,7 @@
                     <div class="why-box">
                         <h3>Why Choose Cafeteen?</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                            Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-                        </p>
+                        choosing our food order and canteen management website offers a convenient, reliable, and cost-effective way to order food and manage your canteen needs. We are committed to providing you with the best service possible and look forward to serving you.</p>
                         <div class="text-center">
                             <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
                         </div>
@@ -70,24 +67,24 @@
                         <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                                 <i class="bi bi-clipboard-data"></i>
-                                <h4>Corporis voluptates officia eiusmod</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                                <h4>Convenience</h4>
+                                <p>Our website offers a hassle-free way to order food and manage your canteen needs. You can order food online from anywhere, anytime, and pay cashlessly.</p>
                             </div>
                         </div><!-- End Icon Box -->
                         
                         <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                                 <i class="bi bi-gem"></i>
-                                <h4>Ullamco laboris ladore pan</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                                <h4>Real-time tracking</h4>
+                                <p>You can track your order in real-time and receive updates on its status, making it easy for you to plan your time.</p>
                             </div>
                         </div><!-- End Icon Box -->
                         
                         <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
                             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                                 <i class="bi bi-inboxes"></i>
-                                <h4>Labore consequatur incidid dolore</h4>
-                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                <h4>Excellent customer service</h4>
+                                <p>We take pride in offering excellent customer service, and our team is always available to assist you with any questions or concerns</p>
                             </div>
                         </div><!-- End Icon Box -->
                         
@@ -136,7 +133,13 @@
             
         </div>
     </section><!-- End Stats Counter Section -->
-    
+    <section id="gallery" class="gallery section-bg">
+        <div class="container" data-aos="fade-up">
+           <p class="text-center"> We take pride in offering excellent customer service, and our team is always available to assist you with any questions or concerns. We believe that everyone deserves good food, and we are committed to making it easily accessible for you.</p>
+
+            <p class="text-center text-danger">Thank you for choosing our food order and canteen management website. We hope you enjoy your experience with us and look forward to serving you.</p>
+        </div>
+    </section>
         <!-- ======= Gallery Section ======= -->
         <section id="gallery" class="gallery section-bg" style="display:none">
         <div class="container" data-aos="fade-up">
