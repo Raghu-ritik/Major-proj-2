@@ -65,11 +65,11 @@
             //setting connection auto commit false
 
             $userid=getNextManagerId();
-            $username=$customer->getUserName();
+            $username=$manager->getUserName();
             $usertype="Manager";
-            $phoneNo=$customer->getPhoneNo();
-            $email=$customer->getEmail();
-            $password=$customer->getPassword();
+            $phoneNo=$manager->getPhoneNo();
+            $email=$manager->getEmail();
+            $password=$manager->getPassword();
             $updatedOn=date("Y-m-d");
             $createdOn=date("Y-m-d");
             
@@ -102,10 +102,67 @@
             else {
                 $flag=false;
             }
+            return $flag;
+        }
 
+        //two pojos are needed for parameter because of user details and manager's status
+        public static function updatemanager($user,$manager){
+            $conn=DBConnect::getConnection();
+
+            $userid= $user->getUserId();
+            $username=$user->getUserName();
+            $phoneNo=$user->getPhoneNo();
+            $email=$user->getEmail();
+            $password=$user->getPassword();
+            $updatedOn=date("Y-m-d");
+
+            //status will be fetched from manager details
+            $status=$manager->getStatus();
+            
+            $query1="update users set username=:username,phone_no=:phoneNo,email=:email,updated_on=:updatedOn,password=:password where userid=:userid";
+            
+            $stmt1=$conn->prepare($query1);
+
+            $stmt1->bindParam('username',$username);
+            $stmt1->bindParam('phoneNo',$phoneNo);
+            $stmt1->bindParam('email',$email);
+            $stmt1->bindParam('updatedOn',$updatedOn);
+            $stmt1->bindParam('password',$password);
+            $stmt1->bindParam('userid',$userid);
+            $flag=true;
+            if($stmt1->execute()){
+                $query2="update MANAGERS set status=:status where M_ID=:userid";
+
+                $stmt2=$conn->prepare($query2);
+                $stmt2->bindParam('status','Y');
+                $stmt2->bindParam('userid',$userid);
+                if($stmt2->execute()){
+                    $flag=true;
+                }
+                else{
+                    $flag=false;
+                }
+            }
+            else {
+                $flag=false;
+            }
 
             return $flag;
         }
 
+        public static function deleteCustomer($MId){
+            $conn=DBConnect::getConnection();
+
+            $query1="update MANAGERS set status='N' where M_Id=:MId";
+            $stmt1=$conn->prepare($query1);
+
+            $stmt1->bindParam('MId',$MId);
+            if($stmt1->execute()){
+                return true;
+            }
+            else {
+                $flag=false;
+            }
+        }
     }
 ?>

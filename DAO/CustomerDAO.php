@@ -61,8 +61,6 @@
 
             $conn=DBConnect::getConnection();
 
-            //setting connection auto commit false
-            // $conn->autocommit(false);
             $userid= CustomerDAO::getNextCustomerId();
             $username=$customer->getUserName();
             $usertype="Customer";
@@ -102,17 +100,68 @@
                 $flag=false;
             }
 
-            if($flag==true){
-                $conn->commit();
-            }
-            else{
-                $conn->rollback();
-            }
+            return $flag;
+        }
 
+        //two pojos are needed for parameter because of user details and customer's status
+        public static function updateCustomer($user,$customer){
+            $conn=DBConnect::getConnection();
+
+            $userid= $user->getUserId();
+            $username=$user->getUserName();
+            $phoneNo=$user->getPhoneNo();
+            $email=$user->getEmail();
+            $password=$user->getPassword();
+            $updatedOn=date("Y-m-d");
+
+            //status will be fetched from customer details
+            $status=$customer->getStatus();
+            
+            $query1="update users set username=:username,phone_no=:phoneNo,email=:email,updated_on=:updatedOn,password=:password where userid=:userid";
+            
+            $stmt1=$conn->prepare($query1);
+
+            $stmt1->bindParam('username',$username);
+            $stmt1->bindParam('phoneNo',$phoneNo);
+            $stmt1->bindParam('email',$email);
+            $stmt1->bindParam('updatedOn',$updatedOn);
+            $stmt1->bindParam('password',$password);
+            $stmt1->bindParam('userid',$userid);
+            $flag=true;
+            if($stmt1->execute()){
+                $query2="update CUSTOMERS set status=:status where C_ID=:userid";
+
+                $stmt2=$conn->prepare($query2);
+                $stmt2->bindParam('status','Y');
+                $stmt2->bindParam('userid',$userid);
+                if($stmt2->execute()){
+                    $flag=true;
+                }
+                else{
+                    $flag=false;
+                }
+            }
+            else {
+                $flag=false;
+            }
 
             return $flag;
         }
 
+        public static function deleteCustomer($CId){
+            $conn=DBConnect::getConnection();
+
+            $query1="update CUSTOMERS set status='N' where C_Id=:CId";
+            $stmt1=$conn->prepare($query1);
+
+            $stmt1->bindParam('CId',$CId);
+            if($stmt1->execute()){
+                return true;
+            }
+            else {
+                $flag=false;
+            }
+        }
         
     }
 ?>
