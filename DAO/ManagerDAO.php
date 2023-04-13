@@ -63,7 +63,6 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-            $conn->autocommit(false);
 
             $userid=getNextManagerId();
             $username=$customer->getUserName();
@@ -104,14 +103,6 @@
                 $flag=false;
             }
 
-            if($flag==true){
-                $conn->commit();
-            }
-            else{
-                $conn->rollback();
-            }
-
- 
 
             return $flag;
         }
