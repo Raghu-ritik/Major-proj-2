@@ -2,15 +2,17 @@
 
 if (!defined('config')) {
     define('config', 'true', false);
-
+ 
     // config.php - you should not need to change these
     define('APP_DB_NAME', isset($_ENV['APP_DB_NAME']) ? $_ENV['APP_DB_NAME'] : 'cafeteen');
 
     /** MySQL database username */
-    define('APP_DB_USER', isset($_ENV['APP_DB_USER']) ? $_ENV['APP_DB_USER'] : 'root');
+    // define('APP_DB_USER', isset($_ENV['APP_DB_USER']) ? $_ENV['APP_DB_USER'] : 'root');
+    define('APP_DB_USER', isset($_ENV['APP_DB_USER']) ? $_ENV['APP_DB_USER'] : 'cafeteen');
 
     /** MySQL database password */
-    define('APP_DB_PASS', isset($_ENV['APP_DB_PASS'])? $_ENV['APP_DB_PASS'] : '');
+    // define('APP_DB_PASS', isset($_ENV['APP_DB_PASS'])? $_ENV['APP_DB_PASS'] : ''); 
+    define('APP_DB_PASS', isset($_ENV['APP_DB_PASS'])? $_ENV['APP_DB_PASS'] : 'RrEmail@1word');
 
     /** MySQL hostname */
     define('APP_DB_HOST', isset($_ENV['APP_DB_HOST']) ? $_ENV['APP_DB_HOST'] : 'localhost');
