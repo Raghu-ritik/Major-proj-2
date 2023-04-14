@@ -62,7 +62,7 @@
             $conn=DBConnect::getConnection();
 
             //setting connection auto commit false
-            // $conn->autocommit(false);
+     
             $userid= CustomerDAO::getNextCustomerId();
             $username=$customer->getUserName();
             $usertype="Customer";
@@ -90,7 +90,8 @@
 
                 $stmt2=$conn->prepare($query2);
                 $stmt2->bindParam('CId',$userid);
-                $stmt2->bindParam('status','Y');
+                $Status = 'Y';
+                $stmt2->bindParam('status',$Status);
                 if($stmt2->execute()){
                     $flag=true;
                 }
@@ -101,15 +102,6 @@
             else {
                 $flag=false;
             }
-
-            if($flag==true){
-                $conn->commit();
-            }
-            else{
-                $conn->rollback();
-            }
-
-
             return $flag;
         }
 

@@ -59,6 +59,13 @@
                     <span class="bg-light">OR</span>
                 </p>
                 <form action="" method="POST" >
+                    {if $registerMSG neq ''}
+                        <div class="form-group input-group">
+                            <div class="alert alert-warning" role="alert">
+                                This is a warning alert—check it out!
+                            </div>
+                        </div> <!-- form-group// -->
+                    {/if}
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>

@@ -1,4 +1,4 @@
-<div class="container py-3 px-3 ">
+<div class="container">
 
 <h2> Add Food Item </h2>
 
@@ -25,14 +25,9 @@
         <label for="exampleFormControlInput1">Food Item Image : </label>
         <input type="file" name="foodImage" />
     </div>
+
     <div class="form-group">
-        <label for="exampleFormControlInput1">Food Listing : </label>
-        <input type="radio" name="status" value="ENABLE" id="show" /> <label for="show"> Show In List</label>
-        <input type="radio" name="status" value="DISABLE" id="showDoNot" /> <label for="showDoNot"> Do not Show in
-            List</label>
-    </div>
-    <div class="form-group">
-        <input type="submit"  class="btn btn-lg btn-primary" name="foodAddSubmit" value="Add Products" />
+        <input type="submit" name="foodAddSubmit" value="Add Products" />
     </div>
 
 </form>

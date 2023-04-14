@@ -1,9 +1,10 @@
 <div class="container">
 
 
-    <a href="Products_manage_A.php?action=AddProduct">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Add A Product</button>
-     </a>
+    <a href="Products_manage_A.php?action=AddProduct">Add A Product </a>
+
+
+
 
     <table class="table table-hover">
         <thead>
@@ -26,14 +27,9 @@
                     <td>{$product.status}</td>
                     <td><img style="height:100px;width:100px;"
                             src="{$g_base_url}\templates\assets/uploadImage/foodImgs/{$product.images}"></td>
-                    <td> <a href="./Products_manage_A.php?action=editProduct&data={$product.P_ID}"> 
-                    <button type="button" class="btn btn-outline-secondary">EDIT</button>
-                     </a></td>
-                    <td> <a href="./Products_manage_A.php?action=viewProduct&data={$product.P_ID}"> 
-                    <button type="button" class="btn btn-outline-info">VIEW</button>
-                     </a></td>
-                    <td> <a href="./Products_manage_A.php?action=deleteProduct&data={$product.P_ID}">
-                    <button type="button" class="btn btn-outline-danger">DELETE</button></a></td>
+                    <td> <a href="./Products_manage_A.php?action=editProduct&data={$product.P_ID}"> EDIT </a></td>
+                    <td> <a href="./Products_manage_A.php?action=viewProduct&data={$product.P_ID}"> VIEW </a></td>
+                    <td> <a href="./Products_manage_A.php?action=deleteProduct&data={$product.P_ID}"> DELETE </a></td>
                 </tr>
             {/foreach}
         </tbody>
