@@ -3,16 +3,16 @@ class DBConnect{
     static $conn;
     public static function getConnection(){
 
-                $APP_DB_HOST="localhost";
-                $APP_DB_USER="root";
-                $APP_DB_PASS="";
-                $APP_DB_NAME="cafeteen";
+                // $APP_DB_HOST="localhost";
+                // $APP_DB_USER="root";
+                // $APP_DB_PASS="";
+                // $APP_DB_NAME="cafeteen";
                 
                 // While Push into the Serve
-                // $APP_DB_HOST="localhost";
-                // $APP_DB_USER="cafeteen";
-                // $APP_DB_PASS="RrEmail@1word";
-                // $APP_DB_NAME="cafeteen";
+                $APP_DB_HOST="localhost";
+                $APP_DB_USER="cafeteen";
+                $APP_DB_PASS="RrEmail@1word";
+                $APP_DB_NAME="cafeteen";
         /*
         * Connect to Database
         */
