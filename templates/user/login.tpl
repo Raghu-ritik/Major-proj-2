@@ -22,6 +22,11 @@
         background-size:cover;
         min-height:100vh
     }
+    @media only screen and (max-width: 600px) {
+      div.login-form-upperdiv {
+        margin: 0px 2rem;
+    }
+}
   </style>
   {/literal}
   <div id="main-wrapper">
@@ -29,7 +34,7 @@
   
       <div class="container-fluid background-SET" style=" background-image: url('{$g_base_url}/templates/assets/myimages/background.jpg');"  >
         <div class="row">
-          <div class="col-lg-3  login-form-upperdiv">
+          <div class="col-10 col-sm-3 col-lg-3 login-form-upperdiv">
             <div class="login-content">
               <div class="login-form">
                 <center><img src="{$g_base_url}/templates/assets/uploadImage/Logo/logo.png" style="width: 100%;"></center><br>

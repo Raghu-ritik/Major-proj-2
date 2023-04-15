@@ -6,10 +6,10 @@
 <section id="contact" class="contact">
   <div class="container" data-aos="fade-up">
 
-    <div class="section-header">
-      <h2>Contact</h2>
-      <p>Need Help? <span>Contact Us</span></p>
-    </div>
+  <div class="section-header">
+  <h3>Contact</h3>
+  Need Help? <span>Contact Us</span>
+</div>
 
     <div class="mb-3">
       <iframe  style="border:0; width: 100%; height: 350px;"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117258.46403048672!2d77.21902838342625!3d23.303891560704596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c67b195af078d%3A0xefa6a6f9c6db88d1!2sSISTec!5e0!3m2!1sen!2sin!4v1681354738834!5m2!1sen!2sin"  frameborder="0" allowfullscreen loading="lazy"></iframe>

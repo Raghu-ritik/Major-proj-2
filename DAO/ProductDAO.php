@@ -4,7 +4,6 @@
         public static function getAllProducts(){
             $conn=DBConnect::getConnection();
             
-             
             //prepared statement
             $query="SELECT * FROM `products`";
             $stmt=$conn->prepare($query);
@@ -61,62 +60,90 @@
             return $newCustomer;
         }
 
-        public static function addProduct($customer){
+        public static function addProduct($product){
 
             $conn=DBConnect::getConnection();
 
-            //setting connection auto commit false
-            // $conn->autocommit(false);
-            $prodid= ProductDAO::getNextProductId();
-            $prodname=$customer->getUserName();
-            $usertype="Customer";
-            $phoneNo=$customer->getPhoneNo();
-            $email=$customer->getEmail();
-            $password=$customer->getPassword();
-            $updatedOn=date("Y-m-d");
+            $PId= ProductDAO::getNextProductId();
+            $PName=$product->getPName();
+            $price=$product->getPrice();
+            $description=$product->getDescription();
+            $images=$product->getImages();
+            $quantity=$product->getQuantity();
             $createdOn=date("Y-m-d");
-            
-            $query1="Insert into USERS values (:userid,:username,:usertype,:phoneNo,:updatedOn,:createdOn,:email,:password)";
-            
+            $updatedOn=date("Y-m-d");
+            $IId=$product->getIId();
+            $status=$product->getStatus();
+
+            $query1="Insert into products values (:PId,:PName,:price,:description,:images,:quantity,:createdOn,:updatedOn,:IId,:status)";
             $stmt1=$conn->prepare($query1);
 
-            $stmt1->bindParam('userid',$userid);
-            $stmt1->bindParam('username',$username);
-            $stmt1->bindParam('usertype',$usertype);
-            $stmt1->bindParam('phoneNo',$phoneNo);
-            $stmt1->bindParam('updatedOn',$updatedOn);
+            $stmt1->bindParam('PId',$PId);
+            $stmt1->bindParam('PName',$PName);
+            $stmt1->bindParam('price',$price);
+            $stmt1->bindParam('description',$description);
+            $stmt1->bindParam('images',$images);
+            $stmt1->bindParam('quantity',$quantity);
             $stmt1->bindParam('createdOn',$createdOn);
-            $stmt1->bindParam('email',$email);
-            $stmt1->bindParam('password',$password);
-            $flag=true;
+            $stmt1->bindParam('updatedOn',$updatedOn);
+            $stmt1->bindParam('IId',$IId);
+            $stmt1->bindParam('status',$status);
             if($stmt1->execute()){
-                $query2="Insert into Customers values (:CId,:status);";
-
-                $stmt2=$conn->prepare($query2);
-                $stmt2->bindParam('CId',$userid);
-                $stmt2->bindParam('status','Y');
-                if($stmt2->execute()){
-                    $flag=true;
-                }
-                else{
-                    $flag=false;
-                }
+                return true;
             }
             else {
                 $flag=false;
             }
-
-            if($flag==true){
-                $conn->commit();
-            }
-            else{
-                $conn->rollback();
-            }
-
-
-            return $flag;
         }
 
-        
+        public static function updateProduct($product){
+            $conn=DBConnect::getConnection();
+
+            $PId= $product->getPId();
+            $PName=$product->getPName();
+            $price=$product->getPrice();
+            $description=$product->getDescription();
+            $images=$product->getImages();
+            $quantity=$product->getQuantity();
+            $createdOn=$product->getCreatedOn();
+            $updatedOn=date("Y-m-d");
+            $IId=$product->getIId();
+            $status=$product->getStatus();
+
+            $query1="update products set P_Name=:PName,price=:price,description=:description,images=:images,Quantity=:quantity,updated_on=:updatedOn,I_ID=:IId,status=:status where P_ID=:PId";
+            $stmt1=$conn->prepare($query1);
+            
+            $stmt1->bindParam('PName',$PName);
+            $stmt1->bindParam('price',$price);
+            $stmt1->bindParam('description',$description);
+            $stmt1->bindParam('images',$images);
+            $stmt1->bindParam('quantity',$quantity);
+            $stmt1->bindParam('updatedOn',$updatedOn);
+            $stmt1->bindParam('IId',$IId);
+            $stmt1->bindParam('status',$status);
+            $stmt1->bindParam('PId',$PId);
+            if($stmt1->execute()){
+                return true;
+            }
+            else {
+                $flag=false;
+            }
+        }
+
+        public static function deleteProduct($PId){
+            $conn=DBConnect::getConnection();
+
+            $query1="update products set status='N' where P_ID=:PId";
+            $stmt1=$conn->prepare($query1);
+
+            $stmt1->bindParam('PId',$PId);
+            if($stmt1->execute()){
+                return true;
+            }
+            else {
+                $flag=false;
+            }
+        }
+
     }
 ?>

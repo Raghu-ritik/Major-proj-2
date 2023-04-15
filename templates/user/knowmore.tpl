@@ -6,10 +6,10 @@
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             
-            <div class="section-header">
-                <h2>About Us</h2>
-                <p>Learn More <span>About Us</span></p>
-            </div>
+        <div class="section-header">
+        <p> About Us </p>
+        <h2>Learn More <span>About Us</span> </h2>
+    </div>
             
             <div class="row gy-4">
                 <div class="col-lg-7 position-relative about-img" style="background-image: url({$g_base_url}/templates/assets/myimages/About/about-2.jpg) ;" data-aos="fade-up" data-aos-delay="150">

@@ -10,7 +10,7 @@
                                                   <span><i class="ti-user f-s-40"></i></span>
                                               </div>
                                               <div class="media-body media-text-right">
-                                                  <h2 class="color-white"> </h2>
+                                                  <h2 class="color-white"> 3 </h2>
                                                   <a href="food.php">
                                                       <p class="m-b-0">Total Customers</p>
                                                   </a>
@@ -28,7 +28,7 @@
                                               </div>
                                               <div class="media-body media-text-right">
 
-                                                  <h2 class="color-white"> </h2>
+                                                  <h2 class="color-white"> 9 </h2>
                                                   <a href="invoice.php">
                                                       <p class="m-b-0">Total Invoice</p>
                                                   </a>
@@ -44,12 +44,8 @@
                                                   <span><i class="ti-calendar  f-s-40"></i></span>
                                               </div>
                                               <div class="media-body media-text-right">
-
-                                                  <h1 style="color:white;"> </h1>
-
-
-
-                                                  <p style="color:white;"> </p>
+                                                  <h1 style="color:white;"> 2 </h1>
+                                                  <p style="color:white;"> Months of service</p>
                                               </div>
                                           </div>
                                       </div>
@@ -61,12 +57,7 @@
                                                   <span><i class="fa fa-money f-s-40"></i></span>
                                               </div>
                                               <div class="media-body media-text-right">
-
-
-                                                  <h1 style="color:white;"> </h1>
-
-
-
+                                                  <h1 style="color:white;"> 999 </h1>
                                                   <p style="color:white;">Total Revenue</p>
                                               </div>
                                           </div>
@@ -82,67 +73,44 @@
 
                           </div>
                           <div class="col-md-12">
+                          {if !empty($orderObj)}
+                         
                               <div class="card">
                                   <div class="card-header">
-                                      <strong class="card-title">Invoices</strong>
+                                      <strong class="card-title">All Orders</strong>
                                   </div>
                                   <div class="card-body">
                                       <table id="myTable" class="table table-bordered table-striped">
                                           <thead>
                                               <tr>
-                                                  <th>#</th>
-                                                  <th>Invoice Date</th>
+                                                  <th>Order ID</th>
+                                                  <th>Product name</th>
+                                                  <th>Order Quantity</th>
                                                   <th>Customer Name</th>
-                                                  <th>Contact</th>
-                                                  <th>Total Invoice Item</th>
+                                                  <th>payment Type</th>
                                                   <th>Payment Status</th>
+                                                  <th>Action</th>
 
                                               </tr>
                                           </thead>
                                           <tbody>
-
-                                              <tr>
-                                                  <td>
-                                                      abc
-                                                  </td>
-                                                  <td>
-                                                      ABC1
-                                                  </td>
-                                                  <td>
-                                                      ABC2
-                                                  </td>
-                                                  <td>
-                                                      ABC3
-                                                  </td>
-                                                  <td>
-                                                      ABC4
-                                                  </td>
-                                                  <td>
-
-                                                      <label class='label label-success'>
-                                                          <h4>Full Payment</h4>
-                                                      </label>
-
-
-
-                                                      <label class='label label-danger'>
-                                                          <h4>Advance Payment</h4>
-                                                      </label>
-
-
-                                                      <label class='label label-warning'>
-                                                          <h4>No Payment</h4>
-                                                      </label>
-
-                                                  </td>
-                                              </tr>
-
-                                          </tbody>
+                                          {foreach $orderObj as $odrObj}
+                                            <tr>
+                                                <td>{{$odrObj.O_ID}}</td>
+                                                <td>{{$odrObj.P_Name}}</td>
+                                                <td>{{$odrObj.Quantity}}</td>
+                                                <td>{{$odrObj.customer}}</td>
+                                                <td>{{$odrObj.payment_type}}</td>
+                                                <td>{{$odrObj.current_status}}</td>
+                                                <td><a href="#" class="btn btn-outline-primary"> Change Status </a></td>
+                                            </tr>
+                                        {/foreach}
+                                            </tbody>
                                       </table>
                                   </div>
                               </div>
                           </div>
-
+                          {/if}
                       </div>
 
 

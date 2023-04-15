@@ -33,8 +33,7 @@
                 return $result;
             }
             else{
-                echo "No Orders Found !";   
-                return false;
+                return "No Orders Found !";
             }
         }
 
@@ -50,6 +49,30 @@
             $result=$stmt->fetchAll();
             if($stmt->rowCount()>0)
             {
+                foreach($result as $key => $valo){
+                    $queryP="SELECT * FROM `products` where P_ID = :pid";
+                    $stmtP=$conn->prepare($queryP);
+                    $stmtP->bindParam(':pid',$valo['P_ID']);
+                    $stmtP->execute();
+                    $resultPNew=$stmtP->fetchAll();
+                    $result[$key]['P_Name'] = $resultPNew[0]['P_Name'];
+
+                    $queryO="SELECT * FROM `status` where status_order = :st_or";
+                    $stmt1=$conn->prepare($queryO);
+                    $stmt1->bindParam(':st_or',$valo['current_status']);
+                    $stmt1->execute();
+                    $resultNew=$stmt1->fetchAll();
+                    $result[$key]['current_status'] = $resultNew[0]['status_name'];
+                    
+                    
+                    $queryU="SELECT * FROM `users` where userid = :usr_or";
+                    $stmt2=$conn->prepare($queryU);
+                    $stmt2->bindParam(':usr_or',$valo['C_ID']);
+                    $stmt2->execute();
+                    $resultNew=$stmt2->fetchAll();
+                    $result[$key]['customer'] = $resultNew[0]['username'];
+
+                }
                 return $result;
             }
             else{

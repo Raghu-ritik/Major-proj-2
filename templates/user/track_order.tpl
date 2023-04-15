@@ -4,6 +4,7 @@
 				<div class="container">
 					<div class="jumbotron">
 
+          {if !empty($var)}
                         <table class="table table-hover">
                             <thead>
                               <tr>
@@ -24,10 +25,11 @@
                                         <td>{{$active.current_status}}</td>
                                     </tr>
                                 {/foreach}
-                            </tbody>
-                          </table>
+                                </tbody>
+                                </table>
+                              {/if}
 
-						<h1 class="text-center" style="color: green;"><span class="glyphicon glyphicon-ok-circle"></span> Order Placed Successfully.</h1>
+						<h1 class="text-center" style="color: green;"><span class="glyphicon glyphicon-ok-circle"></span> Working On Orders.</h1>
 					</div>
 				</div>
 				<br>

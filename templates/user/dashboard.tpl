@@ -16,7 +16,7 @@
         grid-gap: 20px 40px;
     }
     .heading{
-        background-color: #cb202d;
+        background-color: #b83462;
         color: #ffffff;
         margin-bottom: 30px;
         padding: 40px 0 30px 0;
@@ -25,14 +25,16 @@
     }
     .heading>h1{
         font-weight: 400;
-        font-size: 30px;
+        font-size: 40px;
         letter-spacing: 10px;
         margin-bottom: 10px;
+        color: white;
     }
     .heading>h3{
         font-weight: 600;
         font-size: 22px;
         letter-spacing: 5px;
+        color: #f3f3f3;
     }
     .food-items{
         display: grid;
@@ -72,14 +74,32 @@
         font-weight: 400;
         align-self: stretch;
     }
+
+    .text-info{
+        font-weight: bold;
+    }
     .details>button{
-        background-color: #cb202d;
+        background-color: #12744e;
         border: none;
         color: #ffffff;
         font-size: 16px;
         font-weight: 600;
         border-radius: 5px;
         width: 180px;
+        padding: 10px 0px;
+    }
+    @media only screen and (max-width: 600px) {
+        
+        .page-wrapper{
+            margin: 0;
+        }
+        .container-fluid{
+            margin: 0;
+            padding: 5px 10px;
+        }
+        .heading {
+            margin: 4rem 0rem 0.5rem 0rem;
+        }
     }
     {/literal}
 </style>
@@ -88,7 +108,7 @@
     <div class="container-fluid">
         <div class="menu">
         <div class="heading">
-            <h1>Cafeteen</h1>
+            <h1> <b>CAFETEEN</b> </h1>
             <h3>&mdash; MENU &mdash; </h3>
         </div>
         {foreach $allProducts as $product}
@@ -105,7 +125,7 @@
                         <input type="hidden" name="item_name" value="{$product.P_Name}">
                         <input type="hidden" name="item_price" value="{$product.price}">
                         <input type="hidden" name="item_id" value="{$product.P_ID}">
-                        <h5 class="text-info">Quantity: <input type="number" min="1" max="25" name="item_quantity" class="form-control" value="1" style="width: 60px;"> </h5>
+                        <h5 class="text-info">Quantity: <input type="number" min="1" max="25" name="item_quantity" class="form-control" value="1" style="width: 60px; font-weight:bold "> </h5>
                         <button type="submit" name="add" value="Add to Cart">Add To Cart</button>
                     </div>
                 </div>
