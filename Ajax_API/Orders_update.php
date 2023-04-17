@@ -1,14 +1,14 @@
 <?php
 
-    class OrdersDAO{
+require_once("..\DBUtil\DBConnect.php");
         /**
          * provides with the active order of user by using userID
          */
-        public function getActiveOrderStatus($userID){
+        function getActiveOrderStatus($userID){
             $conn=DBConnect::getConnection();
             //prepared statement
             
-            $query="SELECT * FROM `orders` where C_ID = :CID AND current_status < 500";
+            $query="SELECT * FROM `orders` where C_ID = :CID AND current_status < 500 ORDER BY `orders`.`O_ID` DESC";
             $stmt=$conn->prepare($query);
             $stmt->bindParam(':CID',$userID);
             $stmt->execute();
@@ -37,12 +37,12 @@
             }
         }
 
-        public static function getAllOrders(){
+        function getAllOrders(){
             $conn=DBConnect::getConnection();
             
              
             //prepared statement
-            $query="SELECT * FROM `orders`";
+            $query="SELECT * FROM `orders` ORDER BY `orders`.`O_ID` DESC";
             $stmt=$conn->prepare($query);
             
             $stmt->execute();
@@ -81,66 +81,22 @@
             }
         }
 
-        public static function getNextOrderId(){
-            $conn=DBConnect::getConnection();
-            $query="SELECT MAX(O_ID) FROM orders";
+ if($_GET['action']="Manager"){
+    $Results = getAllOrders();
+    $Results = json_encode($Results);
+    print_r($Results);
 
-            $stmt=$conn->prepare($query);
-
-            $stmt->execute();
-
-            $result=$stmt->fetchColumn();
-            $newOrder="";
-            if($stmt->rowCount()>0){
-                $newOrder="O".(intval(substr($result,1))+1);
-            } 
-            else{
-                $newOrder="O101";
-            }
-            return $newOrder;
-        }
-
-        public static function addOrder($Order){
-
-            $conn=DBConnect::getConnection();
-
-            $orderid= OrdersDAO::getNextOrderId();
-            $Quantity=$Order->getQuantity();
-            $C_ID=$Order->getCId();
-            $P_ID=$Order->getPId();
-            $M_ID=$Order->getMId();
-            $order_token=$Order->getOrderToken();
-            $Payment_type=$Order->getPaymentType();
-            $updatedOn=date("Y-m-d");
-            $createdOn=date("Y-m-d");
-            
-            $query1="Insert into orders values (:O_ID, :Quantity, :updated_on, :created_on, :C_ID, :P_ID, :M_ID, :order_token, :payment_type,:current_status)";
-            
-            $stmt1=$conn->prepare($query1);
-            $rest=$stmt1->execute(
-                array(
-                    ':O_ID' => $orderid,
-                    ':Quantity' => $Quantity,
-                    ':updated_on' => $updatedOn,
-                    ':created_on' => $createdOn,
-                    ':C_ID' => $C_ID,
-                    ':P_ID' => $P_ID,
-                    ':M_ID' => $M_ID,
-                    ':order_token' => $order_token,
-                    ':payment_type' => $Payment_type,
-                    ':current_status' => 100
-                )
-            ); 
-            if($rest){
-                return true;
-            }
-            return false;
-        }
-        function getOrderCount($currUser){
-            $res = $this->getActiveOrderStatus($currUser); 
-            return count($res);
-        }
-
-        
-    }
+ }
+ else{
+     $Results = getActiveOrderStatus();
+     if($Results){
+         $Results = json_encode($Results);
+         print_r($Results);
+     }
+     else{
+        print_r(array());
+     }
+ }
+ 
+    
 ?>

@@ -179,6 +179,20 @@
        
     }
 
+    public function getAnCustomer($CustID){
+        $conn=DBConnect::getConnection();
+        $query="SELECT * FROM users WHERE userid = '$CustID'";
+        $stmt=$conn->prepare($query);
+        $stmt->execute();
+        $result=$stmt->fetchAll();
+        if($stmt->rowCount()>0){    
+           return $result[0];
+        } 
+        else
+            return array();
+       
+    }
+
 
         
     }

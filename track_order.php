@@ -12,7 +12,6 @@ $allactive = array();
         $currUser = $_SESSION['userid'];
         $OrderDao = new OrdersDAO();
         $allactive = $OrderDao->getActiveOrderStatus($currUser);
-        
     }
     $GLOBALS['smarty']->assign('allactive', $allactive);
     $redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');

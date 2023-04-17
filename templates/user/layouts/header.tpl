@@ -81,6 +81,7 @@
                         <li><a href="dashboard.php">Dashboard</a></li>
                         <li><a href="contact.php">Contactus</a></li>
                         <li><a href="knowmore.php">Know more</a></li>
+                        <li><a href="user_Profile.php">Profile</a></li>
                         <li><a href="logout.php">logout</a></li>
                     </ul>
                     <a class="btn-book-a-table" href="cart.php"> <i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;&nbsp;  Cart</a>
