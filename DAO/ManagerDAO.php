@@ -65,15 +65,15 @@
             //setting connection auto commit false
 
             $userid=getNextManagerId();
-            $username=$manager->getUserName();
+            $username=$customer->getUserName();
             $usertype="Manager";
-            $phoneNo=$manager->getPhoneNo();
-            $email=$manager->getEmail();
-            $password=$manager->getPassword();
+            $phoneNo=$customer->getPhoneNo();
+            $email=$customer->getEmail();
+            $password=$customer->getPassword();
             $updatedOn=date("Y-m-d");
             $createdOn=date("Y-m-d");
             
-            $query1="Insert into USERS values (:userid,:username,:usertype,:phoneNo,:updatedOn,:createdOn,:email,:password)";
+            $query1="Insert into users values (:userid,:username,:usertype,:phoneNo,:updatedOn,:createdOn,:email,:password)";
             
             $stmt1=$conn->prepare($query1);
 
@@ -87,7 +87,7 @@
             $stmt1->bind_param('password',$password);
             $flag=true;
             if($stmt1->execute()){
-                $query2="Insert into Managers values (:MId,:status);";
+                $query2="Insert into managers values (:MId,:status);";
 
                 $stmt2=$conn->prepare($query2);
                 $stmt2->bind_param('MId',$userid);
@@ -102,9 +102,10 @@
             else {
                 $flag=false;
             }
+
+
             return $flag;
         }
-
         //two pojos are needed for parameter because of user details and manager's status
         public static function updatemanager($user,$manager){
             $conn=DBConnect::getConnection();
@@ -131,7 +132,7 @@
             $stmt1->bindParam('userid',$userid);
             $flag=true;
             if($stmt1->execute()){
-                $query2="update MANAGERS set status=:status where M_ID=:userid";
+                $query2="update managers set status=:status where M_ID=:userid";
 
                 $stmt2=$conn->prepare($query2);
                 $stmt2->bindParam('status','Y');
@@ -153,7 +154,7 @@
         public static function deleteCustomer($MId){
             $conn=DBConnect::getConnection();
 
-            $query1="update MANAGERS set status='N' where M_Id=:MId";
+            $query1="update managers set status='N' where M_Id=:MId";
             $stmt1=$conn->prepare($query1);
 
             $stmt1->bindParam('MId',$MId);
@@ -163,6 +164,21 @@
             else {
                 $flag=false;
             }
+        }
+
+
+        public function getOnlyManagers(){
+            $conn=DBConnect::getConnection();
+            $query="SELECT * FROM users WHERE usertype = 'Manager'";
+            $stmt=$conn->prepare($query);
+            $stmt->execute();
+            $result=$stmt->fetchAll();
+            if($stmt->rowCount()>0){    
+               return $result;
+            } 
+            else
+                return array();
+           
         }
     }
 ?>

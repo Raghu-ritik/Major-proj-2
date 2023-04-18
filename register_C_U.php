@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 require_once('cafe_load.php');
 
 if (!isset($_REQUEST['last_message'])) {
@@ -19,70 +20,45 @@ if (isset($_SESSION['uid'])) {
     }
 }
 draw_Custom_Header();
+$registerMSG = '';
 $usertype='Customer';
 if (isset($_POST['register'])) {
     $u= new UsersPOJO();
     if($_POST['Passwd'] !== $_POST['ConfPasswd']){
-        die("Password and Confirm Password don't match");
+        $registerMSG = "Password and Confirm Password don't match";
+        $GLOBALS['smarty']->assign('registerMSG', $registerMSG);
     }
-    if(!UsersDAO::getUserByEmailId($_POST['Emails'])){
-<<<<<<< HEAD
-<<<<<<< HEAD
+    if(UsersDAO::getUserByEmailId($_POST['Emails'])){
+        $registerMSG = "Email already Exists";
+        $GLOBALS['smarty']->assign('registerMSG', $registerMSG);
+    }
+    else{
         $u->setUserName($_POST['FullName']);
         $u->setEmail($_POST['Emails']);
         $u->setPhoneNo($_POST['PhoneNums']);
         $u->setPassword($_POST['ConfPasswd']);
         $u->setUserType($usertype);
-        $userDao = CustomerDAO::addCustomer($u);       
+        $userDao = CustomerDAO::addCustomer($u);
+        
         if($userDao){
             $_SESSION['uid'] = $id;
+            $registerMSG = "SuccessFully Registered Please Verify your Account & login.";
+            $GLOBALS['smarty']->assign('registerMSG', $registerMSG);
             // redirect to main page
-                if (isset($_REQUEST['redirection'])) {
+            if (isset($_REQUEST['redirection'])) {
                 redirect_visitor($_REQUEST['redirection']);
-                } else {
-                    redirect_visitor('login_C_U.php');
-                }
             } else {
-                echo "There is some error !!";
-                // header('Location: error.php?ec=0');
+                $registerMSG = "SuccessFully Registered Please Verify your Account & login.";
+                $GLOBALS['smarty']->assign('loginMessage', $registerMSG);
+                redirect_visitor('login_C_U.php');
             }
-}
-=======
-=======
->>>>>>> parent of 3a992b6 (adding the register functionality..)
-        die("Email already Exists");
+        } else {
+            $registerMSG = "There is some configuration error !!<br> Please Try Later!";
+        }     
     }
-    $u->setUserName($_POST['FullName']);
-    $u->setEmail($_POST['Emails']);
-    $u->setPhoneNo($_POST['PhoneNums']);
-    $u->setPassword($_POST['ConfPasswd']);
-    $u->setUserType($usertype);
-    print_r($u);
-    die();
-    $userDao = CustomerDAO::addCustomer($u);
-    
-    if($userDao){
-      $_SESSION['uid'] = $id;
-      echo "Use is logging innn";
-      // redirect to main page
-      if (isset($_REQUEST['redirection'])) {
-          redirect_visitor($_REQUEST['redirection']);
-      } else {
-          redirect_visitor('dashboard.php');
-      }
-    } else {
-      echo "There is some error !!";
-      // header('Location: error.php?ec=0');
-    }
-<<<<<<< HEAD
->>>>>>> 0452cdaf7d084ad40d06787566337105de86dd64
-=======
->>>>>>> parent of 3a992b6 (adding the register functionality..)
-
-     
 } elseif (!isset($_POST['login'])) {
+    $GLOBALS['smarty']->assign('registerMSG', $registerMSG);
     $redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');
-
     $GLOBALS['smarty']->assign('redirection', htmlentities($redirection, ENT_QUOTES));
     display_smarty_template('register.tpl',"user");
 } else {

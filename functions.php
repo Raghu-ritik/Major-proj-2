@@ -2,12 +2,19 @@
 
 use Aura\Html\Escaper as e;
 
+// include_once('Plugin_class.php');
+// $plugin = new Plugin();
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
+// Set the Smarty variables
+
 require_once('includes/smarty/libs/Smarty.class.php');
 $GLOBALS['smarty'] = new Smarty();
 $GLOBALS['smarty']->template_dir = dirname(__FILE__) . '/templates/common/';
 $GLOBALS['smarty']->compile_dir = dirname(__FILE__) . '/templates_c/';
 
 $GLOBALS['CONFIG']['base_url'] = base_url();
+ 
 
 /**** SET g_ vars from Global Config arr ***/
 foreach ($GLOBALS['CONFIG'] as $key => $value) {
@@ -151,19 +158,61 @@ function draw_footer($whoseTemplate)
 }
 
 function base_url(){
-    // We don't want to re-write the base_url value when we are being called by a plugin
-    if(!preg_match('/plug-ins*/', $_SERVER['REQUEST_URI'])) {
-        return sprintf(
-            "%s://%s",
-            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-            $_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI'])
-        );
-    } else {
-        // Set the base url relative to the plug-ins folder when being called from there
-        return "../../";
+    // We don't want to re-write the base_url value when we are being called by a plugin   
+        if(isset($_SERVER['REQUEST_URI'])){
+            if(!preg_match('/plug-ins*/', $_SERVER['REQUEST_URI'])) {
+            return sprintf(
+                "%s://%s",
+                isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+                $_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI'])
+            );
+            } else {
+            // Set the base url relative to the plug-ins folder when being called from there
+            return "../../";
+    
+        }}
+}
 
+
+function send_email($subject = FALSE, $to = FALSE, $msg = FALSE, $attachment = FALSE, $bcc = false, $cc = false) {
+    print_r($msg);
+    die();
+    $subject = $subject;  //$_POST['title1'];
+    $toEmails = $to;
+    $message = $msg;
+  
+    $mail = new PHPMailer;
+ 
+    $mail->SMTPDebug = 3; // Enable verbose debug output
+ 
+ 
+    $mail->isSMTP(); // Set mailer to use SMTP
+    $mail->Host = 'smtp.cafeteen.tech'; // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true; // Enable SMTP authentication
+    $mail->Username = 'support@cafeteen.tech'; // SMTP username
+    $mail->Password = 'XTOHxBnG^0'; // SMTP password
+    $mail->SMTPSecure = 'TLS'; // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = '587'; // TCP port to connect to
+ 
+    $mail->setFrom('support@cafeteen.tech', 'Cafeteen Account Validate');
+    //$mail->addAddress('ellen@example.com'); // Name is optional
+    $mail->addReplyTo('support@cafeteen.tech', 'Support Cafeteen');
+  
+    $mail->isHTML(true); // Set email format to HTML
+ 
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+    $mail->AltBody = 'This is an verification Mail!';
+     $mail->addAddress($toEmails); // Add a recipient
+ 
+    if (!$mail->send()) {
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        return 'Message could not be sent.';
+    } else {
+        return 'Mail has been sent';
     }
 }
 
 
 ?>
+

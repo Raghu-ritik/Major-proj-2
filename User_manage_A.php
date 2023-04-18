@@ -8,10 +8,15 @@ require_once('cafe_load.php');
 if (!isset($_REQUEST['last_message'])) {
     $_REQUEST['last_message'] = '';
 }
-draw_header("UserDashboard","admin"); 
- 
- 
+    $allManagers = array();
+    draw_header("UserDashboard","admin");
 
+    $ManagerObj = new ManagerDAO();
+    $allManagers = $ManagerObj->getOnlyManagers();
+    if($allManagers){
+        $GLOBALS['smarty']->assign('allusers', $allManagers);
+    }
+     
 
   
 if (!isset($_POST['login'])) {

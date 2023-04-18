@@ -75,7 +75,7 @@
             $IId=$product->getIId();
             $status=$product->getStatus();
 
-            $query1="Insert into PRODUCTS values (:PId,:PName,:price,:description,:images,:quantity,:createdOn,:updatedOn,:IId,:status)";
+            $query1="Insert into products values (:PId,:PName,:price,:description,:images,:quantity,:createdOn,:updatedOn,:IId,:status)";
             $stmt1=$conn->prepare($query1);
 
             $stmt1->bindParam('PId',$PId);
@@ -110,7 +110,7 @@
             $IId=$product->getIId();
             $status=$product->getStatus();
 
-            $query1="update PRODUCTS set P_Name=:PName,price=:price,description=:description,images=:images,Quantity=:quantity,updated_on=:updatedOn,I_ID=:IId,status=:status where P_ID=:PId";
+            $query1="update products set P_Name=:PName,price=:price,description=:description,images=:images,Quantity=:quantity,updated_on=:updatedOn,I_ID=:IId,status=:status where P_ID=:PId";
             $stmt1=$conn->prepare($query1);
             
             $stmt1->bindParam('PName',$PName);
@@ -133,7 +133,7 @@
         public static function deleteProduct($PId){
             $conn=DBConnect::getConnection();
 
-            $query1="update product set status='N' where P_ID=:PId";
+            $query1="update products set status='N' where P_ID=:PId";
             $stmt1=$conn->prepare($query1);
 
             $stmt1->bindParam('PId',$PId);

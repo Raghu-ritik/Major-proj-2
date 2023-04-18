@@ -6,17 +6,19 @@ session_start();
 // echo "<pre>";
 require_once('cafe_load.php');
 
+print_r($_GET);
+// die;
 if (!isset($_REQUEST['last_message'])) {
     $_REQUEST['last_message'] = '';
 }
-
-draw_header("UserDashboard","admin");
-drawAdminSideBar();
 
 if(isset($_GET['action']) && $_GET['action']=="AddProduct"){
     display_smarty_template('products_add.tpl',"product");
     exit;
 }
+
+draw_header("UserDashboard","admin");
+drawAdminSideBar();
 
 if(isset($_GET['action']) &&  isset($_GET['data']) && $_GET['action']=="editProduct"){
     $data = $_GET['data'];

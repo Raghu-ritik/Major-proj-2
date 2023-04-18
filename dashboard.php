@@ -17,6 +17,8 @@ if (!isset($_REQUEST['last_message'])) {
 
 if (!isset($_POST['checkout'])) {
     $allProducts = ProductDAO::getAllProducts();
+    // print_r($allProducts);
+    // die;
     $GLOBALS['smarty']->assign('allProducts',$allProducts);
     $redirection = (isset($_REQUEST['redirection']) ? $_REQUEST['redirection'] : '');
     drawUserSideBar();
